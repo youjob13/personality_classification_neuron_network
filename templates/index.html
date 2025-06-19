@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Personality Prediction</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Интроверт vs Экстроверт</h1>
+
+      <form method="POST" novalidate>
+        <label for="Time_spent_Alone"
+          >Время проводимое в одиночестве (0–10):</label
+        >
+        <input
+          type="number"
+          id="Time_spent_Alone"
+          name="Time_spent_Alone"
+          step="1"
+          min="0"
+          max="10"
+          required
+        />
+
+        <label for="Stage_fear">Страх сцены:</label>
+        <select id="Stage_fear" name="Stage_fear" required>
+          <option value="" disabled selected>Выбрать</option>
+          <option value="Yes">Присутствует</option>
+          <option value="No">Отсутствует</option>
+        </select>
+
+        <label for="Social_event_attendance"
+          >Посещение общественных мероприятий (0–10):</label
+        >
+        <input
+          type="number"
+          id="Social_event_attendance"
+          name="Social_event_attendance"
+          step="1"
+          min="0"
+          max="10"
+          required
+        />
+
+        <label for="Going_outside">Выход на улицу (0–10):</label>
+        <input
+          type="number"
+          id="Going_outside"
+          name="Going_outside"
+          step="1"
+          min="0"
+          max="10"
+          required
+        />
+
+        <label for="Drained_after_socializing"
+          >Опустошение после социализации:</label
+        >
+        <select
+          id="Drained_after_socializing"
+          name="Drained_after_socializing"
+          required
+        >
+          <option value="" disabled selected>Выбрать</option>
+          <option value="Yes">Присутствует</option>
+          <option value="No">Отсутствует</option>
+        </select>
+
+        <label for="Friends_circle_size"
+          >Размер близких людей в окружении:</label
+        >
+        <input
+          type="number"
+          id="Friends_circle_size"
+          name="Friends_circle_size"
+          step="1"
+          min="0"
+          required
+        />
+
+        <label for="Post_frequency"
+          >Частота публикаций в социальных сетях (0–10):</label
+        >
+        <input
+          type="number"
+          id="Post_frequency"
+          name="Post_frequency"
+          step="1"
+          min="0"
+          max="10"
+          required
+        />
+
+        <button type="submit" class="btn">Предположить</button>
+      </form>
+
+      {% if prediction %}
+      <div class="result success">
+        <h2>Предположение:</h2>
+        <p>{{ prediction }}</p>
+      </div>
+      {% endif %} {% if error %}
+      <div class="result error">
+        <h2>Ошибка:</h2>
+        <p>{{ error }}</p>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

@@ -6,12 +6,11 @@ readme = "README.md"
 requires-python = ">=3.10,<3.12"
 dependencies = [
     "flask>=3.1.1,<4.0.0",
-    "tensorflow>=2.13.0,<2.15.0",
     "scikit-learn>=1.7.0,<2.0.0",
     "joblib>=1.5.1,<2.0.0",
     "pandas>=2.3.0,<3.0.0",
     "matplotlib>=3.10.3,<4.0.0",
-    "numpy>=1.26.0,<2.0.0"
+    "numpy>=1.22,<1.25"
 ]
 
 
